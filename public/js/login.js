@@ -8,7 +8,7 @@ const logInHandler = async (event) => {
     try {
       const dataToSend = { email, password };
 
-      const response = await fetch("/api/login", {
+      const response = await fetch("/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,7 +26,7 @@ const logInHandler = async (event) => {
       console.error("Fetch error:", error);
     }
   } else {
-    res.status(500);
+  alert("Please fill in both email and password.");
   }
 };
 
