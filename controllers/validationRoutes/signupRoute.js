@@ -3,16 +3,12 @@ const router = require("express").Router();
 
 router.get("/", async (req, res) => {
   try {
-    res.render("login");
+    res.render("signup");
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// router.post('/', async (req, res) => {
-//     try {
 
-//     }
-// })
 
 module.exports = router;

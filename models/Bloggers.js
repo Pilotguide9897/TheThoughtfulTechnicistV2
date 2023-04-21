@@ -20,6 +20,9 @@ Blogger.init(
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
+      validate: {
+        len: [2, 25],
+      }
     },
     email: {
       type: DataTypes.STRING,
