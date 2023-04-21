@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const Blogger = require('./Bloggers');
 
 class BlogPost extends Model {}
 
@@ -19,9 +20,13 @@ BlogPost.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    creator_username: {
-      type: DataTypes.STRING,
+    creator_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: Blogger,
+        key: 'id',
+      },
     },
   },
   {

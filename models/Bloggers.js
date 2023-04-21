@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class Blogger extends Model {
-    // Instance method
     checkPassword (loginPassword){
         return bcrypt.compareSync(loginPassword, this.password);
     }
@@ -18,8 +17,9 @@ Blogger.init(
       autoIncrement: true,
     },
     username: {
-        type: DataTypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     email: {
       type: DataTypes.STRING,
