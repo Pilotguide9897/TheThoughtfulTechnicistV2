@@ -1,9 +1,9 @@
 <div class="blogPosts">
-  {{#each blogPosts}}
+  {{#each blogpostData}}
     <div class="post">
       <h2>{{title}}</h2>
       <p>{{post_content}}</p>
-      <h3>Posted by {{creator_username}}</h3>
+      <p>Posted by {{Blogger.username}}</p>
     </div>
   {{/each}}
 </div>
