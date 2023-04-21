@@ -42,4 +42,9 @@ router.post("/logout", (req, res) => {
   }
 });
 
+router.post('/signup', (req, res) => {
+    
+})
+
+
 module.exports = router;

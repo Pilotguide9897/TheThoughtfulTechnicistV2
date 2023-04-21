@@ -5,7 +5,7 @@ const hasAuthorization = require("../utils/authorize");
 
 router.get("/", hasAuthorization, async (req, res) => {
   try {
-    const userId = 
+    //const userId = 
     const postData = await BlogPost.findAll({
       where: {
         creator_id: userId, // Add this line to filter posts by the user's ID
