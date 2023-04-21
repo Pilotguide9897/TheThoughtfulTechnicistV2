@@ -1,11 +1,17 @@
-const express = require("express");
 const router = require("express").Router();
 
 router.get("/", async (req, res) => {
   try {
-    res.render("signup");
+    res.render("login");
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+// router.post('/', async (req, res) => {
+//     try {
+
+//     }
+// })
+
 module.exports = router;
