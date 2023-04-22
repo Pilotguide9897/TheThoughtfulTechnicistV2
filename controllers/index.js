@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 const homeRoutes = require("./homeRoutes");
 const dashboardRoutes = require("./dashboardRoutes");
-const { loginRoutes, signupRoute, userRoutes } = require("./validationRoutes/");
+const { loginRoutes, signupRoute } = require("./validationRoutes/");
 
 router.use("/", homeRoutes);
 router.use("/login", loginRoutes);
