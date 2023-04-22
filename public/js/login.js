@@ -8,7 +8,7 @@ const logInHandler = async (event) => {
     try {
       const dataToSend = { email, password };
 
-      const response = await fetch("/user/login", {
+      const response = await fetch("/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,5 +30,5 @@ const logInHandler = async (event) => {
   }
 };
 
-//document.getElementById("login_button").addEventListener("click", logInHandler);
+document.getElementById("login_button").addEventListener("click", logInHandler);
 document.querySelector(".login-form").addEventListener("submit", logInHandler);

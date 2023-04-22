@@ -12,10 +12,10 @@
 
 const loginRoutes = require("./loginRoute");
 const signupRoute = require("./signupRoute");
-const userRoutes = require ("./userRoutes");
+
 
 module.exports = {
   loginRoutes,
   signupRoute,
-  userRoutes,
+  
 };
