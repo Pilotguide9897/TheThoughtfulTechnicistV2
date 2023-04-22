@@ -28,7 +28,13 @@ const hasAuthorization = require("../utils/authorize");
 
 router.get("/", async (req, res) => {
   try {
-    res.render("dashboard");
+    const data = {logged_in: req.session.logged_in}
+    console.log("Data passed to Handlebars:", data);
+    console.log("Dashboard session data:", req.session);
+
+    res.render("dashboard", {
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }

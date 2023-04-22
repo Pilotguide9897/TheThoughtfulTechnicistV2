@@ -7,6 +7,7 @@ const logOutHandler = async () => {
 
     if (attempt.ok) {
       document.location.replace("/");
+      alert("You have been successfully logged out!");
     } else {
       alert(attempt.statusText);
     }
