@@ -1,6 +1,6 @@
 const logOutHandler = async () => {
   try {
-    const attempt = await fetch("/add route here", {
+    const attempt = await fetch("/login/logout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     });

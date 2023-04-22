@@ -9,7 +9,7 @@ const signUpHandler = async (event) => {
     try {
       const dataToSend = { email, username, password };
 
-      const approval = await fetch("/api/register", {
+      const approval = await fetch("/signup/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -14,6 +14,10 @@ const sess = {
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
+  rolling: true,
+  cookie: {
+    maxAge: 60 * 60 * 1000,
+  },
 };
 
 app.use(session(sess)); 

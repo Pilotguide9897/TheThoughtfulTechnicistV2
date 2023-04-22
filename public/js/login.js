@@ -1,5 +1,6 @@
 const logInHandler = async (event) => {
   event.preventDefault();
+  console.log('logInHandler called');
 
   const email = document.querySelector("#email-login").value.trim();
   const password = document.querySelector("#password-login").value.trim();
@@ -8,7 +9,7 @@ const logInHandler = async (event) => {
     try {
       const dataToSend = { email, password };
 
-      const response = await fetch("/user/login", {
+      const response = await fetch("/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,5 +31,5 @@ const logInHandler = async (event) => {
   }
 };
 
-//document.getElementById("login_button").addEventListener("click", logInHandler);
 document.querySelector(".login-form").addEventListener("submit", logInHandler);
+
