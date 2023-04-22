@@ -1,12 +1,13 @@
-{{!-- <p>Static text just to let me test whether this route is working</p> --}}
-
 <div class="userBlogPosts">
   {{#each blogpostData}}
-    <div class="userPost" data-href="/edit/{{id}}">
+    <div class="userPost bg-lightblue" data-href="/edit/{{id}}">
       <h2>{{title}}</h2>
       <p>Posted on {{format_date createdAt}}</p>
     </div>
   {{/each}}
 </div>
+<div>
+  <button type="button" class="btn btn-secondary create-post" id="create-post">Create Post</button>
+</div>
 
-<button type="button" class="btn btn-secondary">Create Post</button>
+
