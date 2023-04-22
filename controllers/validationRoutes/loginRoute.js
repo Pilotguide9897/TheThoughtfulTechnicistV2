@@ -4,7 +4,9 @@ const router = require("express").Router();
 
 router.get("/", async (req, res) => {
   try {
-    res.render("login");
+    res.render("login", {
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -28,10 +30,11 @@ router.post("/", async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
+      console.log("Session data:", req.session);
+
       res.json({ user: userData, message: "You are now logged in!" });
     });
   } catch (err) {
-    
     res.status(400).json(err);
   }
 });
