@@ -8,9 +8,10 @@ router.get("/:id", hasAuthorization, async (req, res) => {
     const postData = await BlogPost.findByPk(postId);
 
     const singlePostData = postData.get({ plain: true });
+    console.log(singlePostData);
 
-    res.render("post", { 
-        singlePostData, 
+    res.render("edit", { 
+        existingPost: singlePostData, 
         logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
@@ -49,10 +50,10 @@ router.delete("/:id", hasAuthorization, async (req, res) => {
 router.put("/:id", hasAuthorization, async (req, res) => {
   try {
     const postId = req.params.id;
-    const { title, content } = req.body;
-
+    const { title, post_content } = req.body;
+    console.log(req.body);
     const updatedPost = await BlogPost.update(
-      { title, content },
+      { title, post_content },
       {
         where: {
           id: postId,
