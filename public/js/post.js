@@ -2,6 +2,22 @@ $(".post").on("click", function () {
   window.location.replace = $(this).data("href");
 });
 
+// Direct to Comments
+const travelToPost = async () => {
+  try {
+    const response = await fetch(`/post/${postId}`, {
+      method: "GET",
+    });
+    if (response.ok) {
+      window.location.href = `/post/${postId}`;
+    } else {
+      console.error("Error submitting comment");
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 // Add comment
 document.getElementById("add-comment-form").addEventListener("submit", async (event) => {
   event.preventDefault();

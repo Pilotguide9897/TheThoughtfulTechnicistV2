@@ -1,14 +1,21 @@
-$(".userPost").on("click", function () {
-  window.location.href = $(this).data("href");
-});
-
 document.getElementById("editablePost").addEventListener("submit", async (event) => {
   event.preventDefault();
   modifyPageHandler();
 });
 
-const title = document.getElementById("commentTitleToEdit").value;
-const content = document.getElementById("commentContentToEdit").value;
+document.getElementById("edit-post-form").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  postEditHandler();
+});
+
+document.getElementById("delete-post").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  postDeleteHandler();
+});
+
+const title = document.getElementById("edit-title").value;
+const post_content = document.getElementById("edit-content").value;
+
 const postId = document.getElementById("postId").value;
 
 const modifyPageHandler = async () => {    
@@ -26,8 +33,9 @@ const modifyPageHandler = async () => {
 };
 
 // Delete your post
-const postEditHandler = async (event) => {
+const postDeleteHandler = async (event) => {
     event.preventDefault();
+    console.log("postDeleteHandler called");
 
     try{
         const response = await fetch (`/edit/${postId}`, {
@@ -45,18 +53,23 @@ const postEditHandler = async (event) => {
 };
 
 // Edit your post
-const postDeleteHandler = async () => {
+const postEditHandler = async () => {
+  console.log("postEditHandler called");
+
+  const title = document.getElementById("edit-title").value;
+  const post_content = document.getElementById("edit-content").value;
+
      try {
     const response = await fetch(`/edit/${postId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ content, title, postId }),
+      body: JSON.stringify({ title, post_content }),
     });
 
     if (response.ok) {
-      window.location.href = `/edit/${postId}`;
+      window.location.href = "/dashboard";
     } else {
       console.error("Error submitting comment");
     }

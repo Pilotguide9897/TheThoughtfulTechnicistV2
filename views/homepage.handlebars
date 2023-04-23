@@ -1,6 +1,6 @@
 <div class="blogPosts">
   {{#each blogpostData}}
-    <div class="post bg-lightblue" data-href="/post/{{id}}">
+    <div class="post bg-lightblue" data-href="/post/{{id}}" data-post-id="{{id}}">
       <h2>{{title}}</h2>
       <p>{{post_content}}</p>
       <p>Posted by {{Blogger.username}} on {{format_date createdAt}}</p>
