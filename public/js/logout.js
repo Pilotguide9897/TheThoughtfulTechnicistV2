@@ -6,14 +6,13 @@ const logOutHandler = async () => {
     });
 
     if (attempt.ok) {
-      document.location.replace("/");
+      document.location.href("/");
       alert("You have been successfully logged out!");
     } else {
       alert(attempt.statusText);
     }
   } catch {
-    const postCommentHandler = async () => {
-     try {
+    console.error("Logout Error:", error);
   }
 };
 
