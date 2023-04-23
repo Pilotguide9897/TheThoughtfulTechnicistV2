@@ -4,7 +4,9 @@ const BlogPost = require("../models/BlogPost");
 
 router.get("/", hasAuthorization, async (req, res) => {
     try {
-        res.render("createPost");
+        res.render("createPost", {
+          logged_in: req.session.logged_in,
+        });
     } catch (err) {
       res.status(500).json(err);
     }
