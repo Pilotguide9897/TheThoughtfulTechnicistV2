@@ -1,14 +1,39 @@
-$(document).ready(function () {
-  $(".create-post").on("submit", function () {
-    window.location.href = "/create";
-  });
+// $(document).ready(function () {
+//   $(".create-post").on("submit", function () {
+//     window.location.replace("/create");
+//   });
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("create-post").addEventListener("click", createPostTraveller);
 });
 
-$(document).ready(function () {
-  $("#create-post").on("click", function () {
-    window.location.href = "/create";
-  });
-});
+    const createPostTraveller = async () => {
+        console.log("yes, the button has been clicked");
+        try {
+            const response = await fetch("/create", {
+                method: "GET",
+            });
+
+            if (response.ok) {
+                window.location.replace("/create");
+            } else {
+                console.error("Error:", response.statusText);
+                alert(
+                  "An error occurred while loading the create post page. Please try again."
+                );
+            }
+        } catch (err) {
+            console.error("Fetch error:", err);
+            alert(
+              "An error occurred while fetching the page. Please try again."
+            );
+        }
+    }
+
+//   $("#create-post").on("click", function () {
+//     window.location.replace("/create");
+//   });
 
 const title = document.querySelector("#post-title").value.trim();
   const content = document.querySelector("#post-content").value.trim();
@@ -49,3 +74,5 @@ const createPostHandler = async (event) => {
 };
 
 document.querySelector("#create-post-form").addEventListener("submit", createPostHandler);
+
+

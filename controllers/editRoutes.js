@@ -5,11 +5,13 @@ const hasAuthorization = require("../utils/authorize");
 router.get("/:id", hasAuthorization, async (req, res) => {
   try {
     const postId = req.params.id;
-    const postData = await BlogPost.findByPk({postId});
+    const postData = await BlogPost.findByPk(postId);
 
     const singlePostData = postData.get({ plain: true });
 
-    res.render("post", { singlePostData });
+    res.render("post", { 
+        singlePostData, 
+        logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }

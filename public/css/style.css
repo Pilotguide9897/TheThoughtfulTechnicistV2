@@ -2,7 +2,6 @@
     --bgColor: lightblue;
 }
 
-
 .post {
     cursor: pointer;
 }
@@ -15,7 +14,7 @@
     background-color: var(--bgColor);
 }
 
-.signin-form {
+.signup-form {
     background-color: var(--bgColor);
 }
 
