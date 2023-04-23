@@ -1,5 +1,5 @@
 $(".post").on("click", function () {
-  window.location.href = $(this).data("href");
+  window.location.replace = $(this).data("href");
 });
 
 // Add comment
@@ -32,7 +32,7 @@ document.getElementById("add-comment-form").addEventListener("submit", async (ev
   }
 };
 
-
+// View existing content
 
 
 // const navigateToPost = (event) => {

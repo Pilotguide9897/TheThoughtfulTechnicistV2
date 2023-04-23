@@ -6,6 +6,10 @@
     cursor: pointer;
 }
 
+.userPost {
+    cursor: pointer;
+}
+
 .bg-lightblue {
     background-color: var(--bgColor);
 }
@@ -20,4 +24,8 @@
 
 .myFooter {
     text-align: center;
+}
+
+#edit-post-form {
+    background-color: var(--bgColor);
 }
