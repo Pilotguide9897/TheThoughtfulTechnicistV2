@@ -12,7 +12,8 @@ const logOutHandler = async () => {
       alert(attempt.statusText);
     }
   } catch {
-    res.status(500);
+    const postCommentHandler = async () => {
+     try {
   }
 };
 

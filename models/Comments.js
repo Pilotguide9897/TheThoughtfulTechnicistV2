@@ -15,10 +15,12 @@ Comment.init(
       autoIncrement: true,
     },
     content: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
-      isAlphanumeric: true,
-      len: [2, 250],
+      validate: {
+        isAlphanumeric: true,
+        len: [2, 250],
+      },
     },
     creator_id: {
       type: DataTypes.INTEGER,

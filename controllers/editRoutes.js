@@ -1,22 +1,24 @@
 const router = require("express").Router();
+const { BlogPost } = require("../models");
 const hasAuthorization = require("../utils/authorize");
 
-router.get("/", hasAuthorization, async (req, res) => {
-    try {
+router.get("/:id", hasAuthorization, async (req, res) => {
+  try {
+    const postId = req.params.id;
+    const postData = await BlogPost.findByPk({postId});
 
+    const singlePostData = postData.get({ plain: true });
 
-
-
-
-
-
-
-        res.render("edit");
-    } catch (err) {
-      res.status(500).json(err);
-    }
+    res.render("post", { singlePostData });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-router.post("/", hasAuthorization, async (req, res) => {});
+// Delete post
+router.get("/:id", hasAuthorization, async (req, res) => {});
+
+// Edit post 
+router.put("/", hasAuthorization, async (req, res) => {});
 
 module.exports = router;
