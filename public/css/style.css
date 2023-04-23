@@ -1,3 +1,7 @@
 .post {
     cursor: pointer;
 }
+
+.bg-lightblue {
+    background-color: lightblue;
+}

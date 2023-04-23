@@ -25,7 +25,7 @@ router.get("/", hasAuthorization, async (req, res) => {
   }
 });
 
-
+// Can likely just remove
 // router.get("/", async (req, res) => {
 //   try {
 //     const data = {logged_in: req.session.logged_in}

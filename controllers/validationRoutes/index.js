@@ -17,5 +17,4 @@ const signupRoute = require("./signupRoute");
 module.exports = {
   loginRoutes,
   signupRoute,
-  
 };
