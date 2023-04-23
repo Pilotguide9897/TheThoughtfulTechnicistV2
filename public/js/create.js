@@ -27,21 +27,15 @@ const createPostTraveller = async () => {
   }
 };
 
-
-//   $("#create-post").on("click", function () {
-//     window.location.replace("/create");
-//   });
-
-// const title = document.querySelector("#post-title").value.trim();
-// const postContent = document.querySelector("#post-content").value.trim();
-
-
 const createPostHandler = async (event) => {
   event.preventDefault();
 
-  if (title && postContent) {
+  const title = document.querySelector("#post-title").value.trim();
+ const post_content = document.querySelector("#post-content").value.trim();
+
+  if (title && post_content) {
     try {
-      const dataToSend = { title, postContent };
+      const dataToSend = { title, post_content };
 
       const response = await fetch("/create", {
         method: "POST",
@@ -57,9 +51,7 @@ const createPostHandler = async (event) => {
         console.log("Server response:", responseData);
         window.location.replace("/dashboard");
       } else {
-        alert(
-          "Post unsuccessful. Please try again!"
-        );
+        alert("Post unsuccessful. Please try again!");
         console.error("Error:", response.statusText);
       }
     } catch (error) {
@@ -70,6 +62,6 @@ const createPostHandler = async (event) => {
   }
 };
 
-//document.querySelector("#create-post-form").addEventListener("submit", createPostHandler);
+document.querySelector("#create-post-form").addEventListener("submit", createPostHandler);
 
 
